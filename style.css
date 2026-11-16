@@ -11,7 +11,7 @@
 
 /* Type */
 .sf-statement, .sf-heading, .sf-body, .sf-small { margin: 0; }
-.sf-statement { font-size: clamp(27px, 3.9vw, 48px); text-wrap: pretty; max-width: 21em; }
+.sf-statement { font-size: clamp(29px, 4.5vw, 60px); text-wrap: pretty; max-width: 19em; }
 .sf-accent { color: var(--accent); }
 .sf-muted { color: var(--text-muted); }
 .sf-link { text-decoration: underline; text-decoration-thickness: .06em; text-underline-offset: .18em; transition: text-decoration-color .18s ease; }
@@ -30,11 +30,25 @@
 /* Opening statement */
 .sf-open { padding-block: clamp(48px, 11vh, var(--space-7)) clamp(48px, 10vh, var(--space-7)); }
 
-/* Film: rests on the right hand column and widens to the full page as --p goes 0 to 1 */
-.sf-film { margin: 0; --p: 0; padding-inline: calc((1 - var(--p)) * var(--pad)); }
-.sf-film-box { position: relative; margin-left: calc((1 - var(--p)) * var(--col)); aspect-ratio: 16 / 9; background: var(--ink); overflow: hidden; }
-.sf-film-box video, .sf-film-box img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-.sf-film figcaption { margin-top: var(--space-3); margin-left: calc((1 - var(--p)) * var(--col)); padding-inline: calc(var(--p) * var(--pad)); color: var(--text-muted); }
+/* Film: rests on the right hand column, held by the ink bracket and orange square, and widens to the full page as --p goes 0 to 1 */
+.sf-film { --p: 0; --off: 22px; padding-inline: calc((1 - var(--p)) * var(--pad)); }
+.sf-film-box { position: relative; margin-left: calc((1 - var(--p)) * var(--col)); aspect-ratio: 16 / 9; }
+.sf-film-box video, .sf-film-box > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; background: var(--ink); }
+.sf-film-box::before, .sf-film-box::after { content: ""; position: absolute; opacity: calc(1 - var(--p) * 3); pointer-events: none; }
+.sf-film-box::before { top: calc(-1 * var(--off)); left: calc(-1 * var(--off)); width: 38%; height: 56%; border-top: var(--line-frame) solid var(--text); border-left: var(--line-frame) solid var(--text); }
+.sf-film-box::after { right: calc(-1 * var(--off)); bottom: calc(-1 * var(--off)); width: clamp(56px, 8vw, 120px); aspect-ratio: 1; border: var(--line-frame) solid var(--accent); }
+.sf-film-fig { margin: 0; }
+.sf-film-notes { margin-left: var(--col); padding-top: var(--space-5); }
+.sf-film-notes figcaption { margin-top: var(--space-3); color: var(--text-muted); }
+
+/* Contact sheet: frames from the film. The orange frame marks the one playing; pressing a frame plays from there. */
+.sf-sheet { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: var(--space-2); }
+.sf-sheet button { display: block; width: 100%; margin: 0; padding: 0; border: 0; background: none; color: var(--text-muted); font: inherit; text-align: left; cursor: pointer; }
+.sf-sheet img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; outline: 0 solid var(--accent); transition: outline-width .12s ease; }
+.sf-sheet span { display: block; margin-top: var(--space-2); font-size: 12px; line-height: 1; font-variant-numeric: tabular-nums; }
+.sf-sheet button:hover span { color: var(--text); }
+.sf-sheet .is-on img { outline-width: var(--space-1); }
+.sf-sheet .is-on span { color: var(--text); }
 
 /* Index: plain terms and answers on the right hand column */
 .sf-index { padding-block: clamp(64px, 11vw, var(--space-8)); }
@@ -43,19 +57,18 @@
 .sf-index dt { color: var(--text-muted); padding-top: .35em; }
 .sf-index dd { margin: 0; max-width: 33em; }
 
-/* Closing line */
-.sf-close { padding-bottom: clamp(72px, 12vw, var(--space-8)); }
-
-/* Footer */
-.sf-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3) var(--space-4); padding: var(--space-4) var(--pad) var(--space-5); color: var(--text-muted); }
-.sf-foot-brand { display: flex; align-items: center; gap: var(--space-3); }
-.sf-foot-brand img { display: block; width: 32px; height: 32px; }
+/* End: the closing line, the logo set large and the footer, on ink */
+.sf-close { padding-block: clamp(72px, 12vw, var(--space-8)) clamp(56px, 9vw, var(--space-7)); }
+.sf-end-logo { display: block; width: 100%; height: auto; }
+.sf-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2) var(--space-4); padding: var(--space-5) var(--pad); color: var(--text-muted); }
 
 @media (max-width: 760px) {
   .sf { font-size: 17px; --col: 0%; }
   .sf-top-logo img { height: 32px; }
-  .sf-film { --rest: 12%; }
-  .sf-film-box, .sf-film figcaption { margin-left: calc((1 - var(--p)) * var(--rest)); }
+  .sf-film { --rest: 10%; --off: 9px; }
+  .sf-film-box { margin-left: calc((1 - var(--p)) * var(--rest)); }
+  .sf-film-box::before, .sf-film-box::after { border-width: 6px; }
+  .sf-sheet { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-3) var(--space-2); }
   .sf-index dl > div { grid-template-columns: 1fr; }
   .sf-index dt { padding-top: 0; }
 }

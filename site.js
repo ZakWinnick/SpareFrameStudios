@@ -12,8 +12,8 @@
     raf = 0;
     if (reduce.matches) { film.style.removeProperty('--p'); return; }
     const vh = innerHeight;
-    // 0 while the top of the film is in the lower fifth of the window, 1 once it nears the top.
-    const raw = Math.min(1, Math.max(0, (vh * 0.8 - film.getBoundingClientRect().top) / (vh * 0.65)));
+    // 0 until the top of the film reaches the middle of the window, 1 when it reaches the top.
+    const raw = Math.min(1, Math.max(0, (vh * 0.5 - film.getBoundingClientRect().top) / (vh * 0.5)));
     film.style.setProperty('--p', (raw * raw * (3 - 2 * raw)).toFixed(4));
   }
   const queue = () => { if (!raf) raf = requestAnimationFrame(update); };
@@ -35,6 +35,18 @@
   }
 
   video.addEventListener('loadedmetadata', () => { if (video.currentTime < FILM_START) video.currentTime = FILM_START; });
+  // Contact sheet: the orange frame follows the film, and pressing a frame plays from there.
+  const frames = [...document.querySelectorAll('.sf-sheet button')];
+  video.addEventListener('timeupdate', () => {
+    let on = 0;
+    frames.forEach((b, n) => { if (video.currentTime + 0.05 >= parseFloat(b.dataset.t)) on = n; });
+    frames.forEach((b, n) => b.parentElement.classList.toggle('is-on', n === on));
+  });
+  frames.forEach((b) => b.addEventListener('click', () => {
+    video.currentTime = parseFloat(b.dataset.t);
+    if (!reduce.matches) video.play().catch(() => {});
+  }));
+
   video.addEventListener('ended', () => { video.currentTime = FILM_START; if (!reduce.matches) video.play().catch(() => {}); });
 
   // Only play while the film is on screen.

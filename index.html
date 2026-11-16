@@ -12,9 +12,9 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="assets/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="stylesheet" href="tokens.css?v=5">
-<link rel="stylesheet" href="style.css?v=5">
-<script src="site.js?v=5" defer></script>
+<link rel="stylesheet" href="tokens.css?v=6">
+<link rel="stylesheet" href="style.css?v=6">
+<script src="site.js?v=6" defer></script>
 </head>
 <body class="sf">
 <a class="sf-skip" href="#main">Skip to content</a>
@@ -26,16 +26,30 @@
 
 <main id="main">
   <section class="sf-open sf-wrap">
-    <h1 class="sf-statement">Spare Frame Studios makes campaigns, imagery, and short films for businesses with something to show. We take it from the first idea to the finished piece.</h1>
+    <h1 class="sf-statement">Spare Frame Studios makes campaigns, imagery, and short films for businesses whose ideas deserve a <span class="sf-accent">bigger frame</span>. We take it from the first idea to the finished piece.</h1>
   </section>
 
-  <figure class="sf-film">
-    <div class="sf-film-box">
-      <video muted playsinline preload="metadata" poster="assets/film-poster.jpg" aria-label="Prints, a paper mat and an orange gel on a desk, ending on a finished product photograph">
-        <source src="assets/film.mp4#t=5" type="video/mp4">
-      </video>
+  <figure class="sf-film-fig">
+    <div class="sf-film">
+      <div class="sf-film-box">
+        <video muted playsinline preload="metadata" poster="assets/film-poster.jpg" aria-label="Prints on a desk, then a move through a paper mat into a finished product photograph">
+          <source src="assets/film.mp4#t=5" type="video/mp4">
+        </video>
+      </div>
     </div>
-    <figcaption class="sf-small">A Spare Frame experiment, 2026</figcaption>
+    <div class="sf-wrap"><div class="sf-film-notes">
+      <ol class="sf-sheet" aria-label="Frames from the film">
+        <li><button type="button" data-t="5.2" aria-label="Play from 0:00: Contact sheets and a portrait print on the desk"><img src="assets/frames/frame-01.jpg" alt="" width="480" height="270" loading="lazy"><span>0:00</span></button></li>
+        <li><button type="button" data-t="6.6" aria-label="Play from 0:01: Contact sheets, with a paper mat standing behind them"><img src="assets/frames/frame-02.jpg" alt="" width="480" height="270" loading="lazy"><span>0:01</span></button></li>
+        <li><button type="button" data-t="8.0" aria-label="Play from 0:03: The paper mat, with a small scene showing through it"><img src="assets/frames/frame-03.jpg" alt="" width="480" height="270" loading="lazy"><span>0:03</span></button></li>
+        <li><button type="button" data-t="9.4" aria-label="Play from 0:04: Closer on the mat"><img src="assets/frames/frame-04.jpg" alt="" width="480" height="270" loading="lazy"><span>0:04</span></button></li>
+        <li><button type="button" data-t="10.8" aria-label="Play from 0:05: Through the mat: a perfume bottle"><img src="assets/frames/frame-05.jpg" alt="" width="480" height="270" loading="lazy"><span>0:05</span></button></li>
+        <li><button type="button" data-t="12.2" aria-label="Play from 0:07: Passing through the mat"><img src="assets/frames/frame-06.jpg" alt="" width="480" height="270" loading="lazy"><span>0:07</span></button></li>
+        <li><button type="button" data-t="13.4" aria-label="Play from 0:08: The perfume bottle, an orange and a sprig of berries"><img src="assets/frames/frame-07.jpg" alt="" width="480" height="270" loading="lazy"><span>0:08</span></button></li>
+        <li><button type="button" data-t="14.6" aria-label="Play from 0:09: The finished product photograph"><img src="assets/frames/frame-08.jpg" alt="" width="480" height="270" loading="lazy"><span>0:09</span></button></li>
+      </ol>
+      <figcaption class="sf-small">A Spare Frame experiment, 2026. Pick a frame to play from there.</figcaption>
+    </div></div>
   </figure>
 
   <section class="sf-index sf-wrap">
@@ -46,14 +60,16 @@
     </dl>
   </section>
 
-  <section class="sf-close sf-wrap">
-    <p class="sf-statement">Have a project in mind? Tell us what you’re working on at <a class="sf-link" href="mailto:hello@spareframe.net">hello@spareframe.net</a>.</p>
-  </section>
+  <div class="sf-ground" data-theme="dark">
+    <section class="sf-close sf-wrap">
+      <p class="sf-statement">Have a project in mind? Tell us what you’re working on at <a class="sf-link" href="mailto:hello@spareframe.net">hello@spareframe.net</a>.</p>
+    </section>
+    <div class="sf-wrap"><img class="sf-end-logo" src="assets/logo-reverse.svg" alt="" width="665" height="130"></div>
+    <footer class="sf-foot sf-small">
+      <span>© 2026 Spare Frame Studios</span>
+      <span>Good ideas deserve a bigger frame.</span>
+    </footer>
+  </div>
 </main>
-
-<footer class="sf-foot sf-small">
-  <div class="sf-foot-brand"><img src="assets/mark-color.svg" alt="" width="32" height="32"><span>© 2026 Spare Frame Studios</span></div>
-  <span>Good ideas deserve a bigger frame.</span>
-</footer>
 </body>
 </html>

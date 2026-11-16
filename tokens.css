@@ -40,7 +40,7 @@
   --line-frame: 12px;
   --font-sans: "Avenir Next", Avenir, Arial, sans-serif;
 }
-.sf-statement { font-family: var(--font-sans); font-size: 48px; line-height: 1.18; font-weight: 500; letter-spacing: -0.022em; }
+.sf-statement { font-family: var(--font-sans); font-size: 60px; line-height: 1.12; font-weight: 500; letter-spacing: -0.028em; }
 .sf-heading { font-family: var(--font-sans); font-size: 24px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em; }
 .sf-body { font-family: var(--font-sans); font-size: 18px; line-height: 1.55; font-weight: 400; }
 .sf-small { font-family: var(--font-sans); font-size: 14px; line-height: 1.5; font-weight: 400; }
