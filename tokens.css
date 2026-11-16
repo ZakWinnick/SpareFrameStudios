@@ -1,0 +1,51 @@
+/* Spare Frame Studios: generated from the design system tokens.json. Edit tokens there. */
+:root, [data-theme="light"] {
+  --ink: #191817;
+  --cream: #f7f1e8;
+  --orange: #c64c17;
+  --orange-light: #e4662c;
+  --surface: var(--cream);
+  --surface-raised: #ffffff;
+  --text: var(--ink);
+  --text-muted: #5c5650;
+  --accent: var(--orange);
+  --on-accent: #ffffff;
+  --rule: #d9d1c7;
+  --focus: var(--orange);
+}
+[data-theme="dark"] {
+  --surface: var(--ink);
+  --surface-raised: #24221f;
+  --text: var(--cream);
+  --text-muted: #b9b0a4;
+  --accent: var(--orange-light);
+  --on-accent: var(--ink);
+  --rule: #3a3734;
+  --focus: var(--orange-light);
+}
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 40px;
+  --space-6: 64px;
+  --space-7: 104px;
+  --space-8: 160px;
+  --radius-none: 0px;
+  --radius-md: 8px;
+  --line-hair: 1px;
+  --line-control: 2px;
+  --line-rule: 8px;
+  --line-frame: 12px;
+  --font-sans: "Avenir Next", Avenir, Arial, sans-serif;
+  --font-label: Arial, sans-serif;
+}
+.sf-display { font-family: var(--font-sans); font-size: 96px; line-height: 0.95; font-weight: 700; letter-spacing: -0.04em; }
+.sf-headline { font-family: var(--font-sans); font-size: 64px; line-height: 1; font-weight: 700; letter-spacing: -0.035em; }
+.sf-title { font-family: var(--font-sans); font-size: 40px; line-height: 1.05; font-weight: 700; letter-spacing: -0.03em; }
+.sf-subtitle { font-family: var(--font-sans); font-size: 24px; line-height: 1.25; font-weight: 700; letter-spacing: -0.015em; }
+.sf-lead { font-family: var(--font-sans); font-size: 21px; line-height: 1.5; font-weight: 500; }
+.sf-body { font-family: var(--font-sans); font-size: 17px; line-height: 1.6; font-weight: 400; }
+.sf-small { font-family: var(--font-sans); font-size: 14px; line-height: 1.5; font-weight: 400; }
+.sf-label { font-family: var(--font-label); font-size: 12px; line-height: 1.3; font-weight: 700; letter-spacing: 0.16em; }
