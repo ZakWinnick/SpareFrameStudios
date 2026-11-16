@@ -1,0 +1,34 @@
+name: Deploy website
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare animation
+        run: |
+          curl --fail --location --retry 3 'https://d8j0ntlcm91z4.cloudfront.net/user_36Rfy1C7ZQuqYqjMQjnkt58XQV3/hf_20261116_181235_914829d0-da08-45b9-97f5-a82134865bef.mp4' --output assets/film.mp4
+          ffmpeg -hide_banner -loglevel error -y -i assets/film.mp4 -frames:v 1 -q:v 3 assets/poster.jpg
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
