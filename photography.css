@@ -35,6 +35,7 @@
   --space-8: 160px;
   --radius-none: 0px;
   --radius-md: 8px;
+  --radius-pill: 999px;
   --line-hair: 1px;
   --line-control: 2px;
   --line-rule: 8px;
@@ -54,7 +55,7 @@
 /* Spare Frame Studios: photography site. Components. Tokens come first in photography.css. */
 .sf, .sf *, .sf *::before, .sf *::after { box-sizing: border-box; }
 html { overflow-x: clip; }
-.sf { margin: 0; background: var(--surface); color: var(--text); font-family: var(--font-sans); font-size: 20px; line-height: 1.55; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow-x: clip; --pad: clamp(20px, 5vw, var(--space-6)); --gap: clamp(72px, 11vw, var(--space-8)); --cross: clamp(96px, 13vw, 200px); --key: 56px; }
+.sf { margin: 0; background: var(--surface); color: var(--text); font-family: var(--font-sans); font-size: 20px; line-height: 1.55; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow-x: clip; --pad: clamp(20px, 5vw, var(--space-6)); --gap: clamp(72px, 11vw, var(--space-8)); --cross: clamp(96px, 13vw, 200px); --key: 56px; --head: 104px; }
 .sf img { display: block; max-width: 100%; }
 :where(.sf) a { color: inherit; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: .22em; }
 :where(.sf) :where(h1, h2, h3, p, ol, ul, figure) { margin: 0; }
@@ -82,15 +83,24 @@ html { overflow-x: clip; }
 .slot span { max-width: 22em; font-size: 13px; line-height: 1.4; color: var(--text-muted); }
 
 /* Header: the logo, two page links and the address. No menu button; on phones the links drop to a second row. */
-.head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 var(--space-5); padding-block: var(--space-4); }
+.ground--top { padding-top: var(--head); }
+.head { position: fixed; top: clamp(10px, 1.2vw, 16px); left: 0; right: 0; z-index: 50; padding-inline: var(--pad); pointer-events: none; }
+.head-rail { pointer-events: auto; display: flex; align-items: center; justify-content: space-between; gap: 0 var(--space-5); max-width: 1312px; min-height: 64px; margin-inline: auto; padding: 8px clamp(18px, 2vw, 28px); border: 1px solid rgba(247, 241, 232, .16); border-radius: var(--radius-pill); background: rgba(25, 24, 23, .94); box-shadow: 0 10px 36px rgba(25, 24, 23, .22), inset 0 1px 0 rgba(255, 255, 255, .1); transition: background-color .25s ease, border-color .25s ease, box-shadow .25s ease, padding .25s ease; }
+@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  .head-rail { background: rgba(25, 24, 23, .78); -webkit-backdrop-filter: blur(24px) saturate(160%); backdrop-filter: blur(24px) saturate(160%); }
+}
+/* At the top of the page the glass clears and the menu sits straight on the ink */
+.head.at-top .head-rail { padding-inline: 0; border-color: transparent; background: transparent; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
 .head-logo { display: block; line-height: 0; }
 .head-logo img { height: 38px; width: auto; }
+.head-logo .head-mark { display: none; }
 .head-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--space-5); margin-left: auto; }
 .head-nav, .head-mail { font-size: 16px; font-weight: 600; }
 .head-nav a, .head-mail { display: inline-flex; align-items: center; min-height: 44px; }
 .head-nav a { text-decoration-color: transparent; }
 .head-nav a:hover, .head-nav a[aria-current="page"] { text-decoration-color: var(--accent); }
-.head-mail { color: var(--accent); }
+.head-mail { color: var(--text); text-decoration-color: var(--accent); }
+.head.at-top .head-mail { color: var(--accent); }
 
 /* Inner pages open with the header and one headline on ink */
 .page-head { padding-block: clamp(40px, 6vw, 88px) clamp(48px, 7vw, 104px); }
@@ -124,7 +134,7 @@ html { overflow-x: clip; }
 .shoot-head { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--space-6); align-items: end; margin-bottom: clamp(64px, 8vw, 128px); }
 .shoot-intro { max-width: 30em; font-size: 18px; }
 .chapters { list-style: none; padding: 0; display: grid; gap: clamp(72px, 9vw, 144px); }
-.chapter { display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: clamp(32px, 4vw, 64px); align-items: stretch; scroll-margin-top: var(--space-5); }
+.chapter { display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: clamp(32px, 4vw, 64px); align-items: stretch; scroll-margin-top: calc(var(--head) + var(--space-3)); }
 .chapter--flip { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); }
 .chapter--flip > .slot { order: 2; }
 /* The large photo is at least 3:2 and grows to the height of the text column beside it, cropping instead of pushing into the gap */
@@ -197,6 +207,7 @@ html { overflow-x: clip; }
 @media (max-width: 820px) {
   .sf { font-size: 18px; --cross: 72px; }
   .head-logo img { height: 30px; }
+  .head-rail { min-height: 56px; }
   .head-nav, .head-mail { font-size: 15px; }
   .head-nav { gap: 0 var(--space-4); }
   .about-grid { grid-template-columns: 1fr; gap: var(--space-5); }
@@ -209,11 +220,33 @@ html { overflow-x: clip; }
 }
 
 @media (max-width: 600px) {
-  .head { column-gap: var(--space-3); }
-  .head-nav { order: 3; flex-basis: 100%; margin-left: 0; }
   .chapter-side { grid-template-columns: 1fr; }
   .slot--side { display: none; }
   .band { aspect-ratio: 4 / 3; }
+}
+
+/* Small screens: the glass bar is one row, the mark and the links. At the top of the page it opens to two rows with the full logo. */
+@media (max-width: 720px) {
+  .sf { --head: 128px; }
+  .head-rail { flex-wrap: nowrap; column-gap: 12px; padding: 2px 14px; }
+  .head.at-top .head-rail { flex-wrap: wrap; column-gap: var(--space-3); }
+  .head-nav, .head-mail { font-size: 13px; }
+  .head-nav { gap: 0 12px; flex-wrap: nowrap; white-space: nowrap; }
+  .head-mail { white-space: nowrap; }
+  .head-logo .head-full { display: none; }
+  .head-logo .head-mark { display: block; height: 26px; }
+  /* At the top: full logo and Inquire on one row, the links on a second */
+  .head.at-top .head-rail { padding-block: 8px; }
+  .head.at-top .head-logo .head-full { display: block; }
+  .head.at-top .head-logo .head-mark { display: none; }
+  .head.at-top .head-nav { order: 3; flex-basis: 100%; margin-left: 0; gap: 0 var(--space-4); }
+  .head.at-top .head-nav, .head.at-top .head-mail { font-size: 15px; }
+}
+
+@media (max-width: 340px) {
+  .head-nav, .head-mail { font-size: 12px; }
+  .head-nav { gap: 0 8px; }
+  .head-rail { column-gap: 8px; padding-inline: 10px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

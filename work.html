@@ -29,15 +29,17 @@
      To fill one: replace the whole <div>...</div> with <img src="assets/photos/..." alt="what the photo shows">, and remove aria-hidden.
      Add loading="lazy" to every photo below the top of the page. -->
 
-<div class="ground" data-theme="dark">
-  <header class="wrap head">
-    <a class="head-logo" href="index.html" aria-label="Spare Frame Studios Home"><img src="assets/logo-reverse.svg" alt="" width="194" height="38"></a>
-    <nav class="head-nav" aria-label="Main">
+<div class="ground ground--top" data-theme="dark">
+  <header class="head" data-head>
+    <div class="head-rail">
+      <a class="head-logo" href="index.html" aria-label="Spare Frame Studios Home"><img class="head-full" src="assets/logo-reverse.svg" alt="" width="194" height="38"><img class="head-mark" src="assets/mark-reverse.svg" alt="" width="32" height="32"></a>
+      <nav class="head-nav" aria-label="Main">
       <a href="about.html">About</a>
       <a href="https://spareframe.studio/">Portfolio</a>
       <a href="working-together.html">Working Together</a>
-    </nav>
-    <a class="head-mail" href="https://studio.spareframe.net/">Inquire</a>
+      </nav>
+      <a class="head-mail" href="https://studio.spareframe.net/">Inquire</a>
+    </div>
   </header>
 
   <section class="wrap page-head" id="top">
@@ -94,5 +96,15 @@
     <a href="mailto:hello@spareframe.net">hello@spareframe.net</a>
   </footer>
 </div>
+<script>
+/* The menu is glass by default. At the very top of the page it goes clear. */
+(function () {
+  var head = document.querySelector('[data-head]');
+  if (!head) return;
+  function set() { head.classList.toggle('at-top', window.scrollY < 40); }
+  set();
+  window.addEventListener('scroll', set, { passive: true });
+})();
+</script>
 </body>
 </html>
