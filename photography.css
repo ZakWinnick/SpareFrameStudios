@@ -54,7 +54,7 @@
 /* Spare Frame Studios: photography site. Components. Tokens come first in photography.css. */
 .sf, .sf *, .sf *::before, .sf *::after { box-sizing: border-box; }
 html { overflow-x: clip; }
-.sf { margin: 0; background: var(--surface); color: var(--text); font-family: var(--font-sans); font-size: 20px; line-height: 1.55; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow-x: clip; --pad: clamp(20px, 5vw, var(--space-6)); --gap: clamp(72px, 11vw, var(--space-8)); --cross: clamp(72px, 12vw, 176px); }
+.sf { margin: 0; background: var(--surface); color: var(--text); font-family: var(--font-sans); font-size: 20px; line-height: 1.55; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow-x: clip; --pad: clamp(20px, 5vw, var(--space-6)); --gap: clamp(72px, 11vw, var(--space-8)); --cross: clamp(96px, 13vw, 200px); --key: 56px; }
 .sf img { display: block; max-width: 100%; }
 :where(.sf) a { color: inherit; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: .22em; }
 :where(.sf) :where(h1, h2, h3, p, ol, ul, figure) { margin: 0; }
@@ -96,36 +96,48 @@ html { overflow-x: clip; }
 .page-head { padding-block: clamp(40px, 6vw, 88px) clamp(48px, 7vw, 104px); }
 .page-head h1 { max-width: 14em; }
 
-/* Hero: the line, the intro, then one band of three photos that crosses from the ink onto the cream */
-.hero { display: flow-root; padding-top: clamp(40px, 6vw, 88px); }
+/* Hero: the invitation on the left, one band of three tall photographs on the right, crossing from the ink onto the cream */
+.hero { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 88px); align-items: end; padding-top: clamp(24px, 3vw, 48px); }
+.hero-copy { padding-bottom: clamp(40px, 5vw, 80px); }
 .hero .sf-label { color: var(--accent); margin-bottom: var(--space-4); }
-.hero h1 { max-width: 13em; }
-.hero-text { max-width: 31em; margin-top: clamp(28px, 3.5vw, 48px); }
+.hero h1 { font-size: clamp(1.75rem, 3.15vw, 3rem); line-height: 1.12; font-weight: 500; letter-spacing: -0.025em; text-wrap: pretty; }
+.hero h1 em { font-style: normal; color: var(--accent); }
 .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 56px; margin-top: var(--space-5); padding: 0 var(--space-4); background: var(--text); color: var(--surface); font-size: 17px; font-weight: 600; text-decoration: none; transition: background-color .2s ease; }
 .btn:hover { background: var(--accent); color: var(--on-accent); }
-.strip { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: clamp(48px, 6vw, 88px); margin-bottom: calc(-1 * var(--cross)); }
-.strip::before { content: ""; position: absolute; inset: 0; border: var(--line-control) solid var(--accent); transform: translate(var(--line-frame), var(--line-frame)); }
-.strip .slot { aspect-ratio: 4 / 5; }
+.hero-photos { margin-right: calc(-1 * var(--pad)); margin-bottom: calc(-1 * var(--cross)); }
+.strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); height: clamp(420px, 72vh, 760px); }
+.strip .slot { aspect-ratio: auto; height: 100%; min-height: 0; }
 .strip .slot::before { content: none; }
+.strip-key { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); height: var(--key); align-items: center; color: var(--ink); }
+.strip-key a { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 44px; font-weight: 600; text-decoration-color: transparent; }
+.strip-key a:hover { text-decoration-color: var(--orange); }
+.strip-key span { color: #5c5650; font-weight: 400; font-variant-numeric: tabular-nums; }
 
 /* Sections on cream */
 .sec { padding-top: var(--gap); }
 .sec > .sf-label { display: block; padding-top: var(--space-3); border-top: var(--line-hair) solid var(--rule); margin-bottom: clamp(28px, 4vw, 56px); }
-.after-hero { padding-top: calc(var(--gap) + var(--cross)); }
 
-/* What I shoot: three chapters of equal weight, the photo alternating sides like a photo book */
-.chapters { list-style: none; padding: 0; display: grid; gap: clamp(64px, 8vw, 128px); }
-.chapter { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-6); align-items: center; }
-.chapter--flip { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
-.chapter--flip .slot { order: -1; }
-.chapter-num { display: block; font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 600; line-height: 1; letter-spacing: -0.04em; color: var(--accent); }
-.chapter h3 { margin-top: var(--space-3); }
-.chapter p { max-width: 27em; margin-top: var(--space-3); }
+/* What I shoot: a statement, then three chapters of equal weight. Each is one large photograph, a smaller second one and a few lines, the big photo alternating sides like a photo book. */
+.shoot { padding-top: calc(var(--gap) + var(--cross)); }
+.shoot-head { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--space-6); align-items: end; margin-bottom: clamp(64px, 8vw, 128px); }
+.shoot-intro { max-width: 30em; font-size: 18px; }
+.chapters { list-style: none; padding: 0; display: grid; gap: clamp(72px, 9vw, 144px); }
+.chapter { display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: clamp(32px, 4vw, 64px); align-items: stretch; scroll-margin-top: var(--space-5); }
+.chapter--flip { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); }
+.chapter--flip > .slot { order: 2; }
+.chapter-side { display: flex; flex-direction: column; justify-content: space-between; gap: var(--space-5); }
+.chapter-num { display: flex; align-items: center; gap: var(--space-3); font-size: 15px; font-weight: 600; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.chapter-num::after { content: ""; width: 40px; height: var(--line-control); background: var(--accent); }
+.chapter h3 { margin-top: var(--space-4); font-size: clamp(1.75rem, 2.6vw, 2.5rem); }
+.chapter p { margin-top: var(--space-3); font-size: 18px; }
 .chapter p + p { color: var(--text-muted); }
-.films { margin-top: clamp(56px, 7vw, 104px); padding-top: var(--space-4); border-top: var(--line-hair) solid var(--rule); font-size: 18px; color: var(--text-muted); }
+.slot--side::before { content: none; }
+.films { margin-top: clamp(64px, 8vw, 128px); padding-top: var(--space-4); border-top: var(--line-hair) solid var(--rule); font-size: 18px; color: var(--text-muted); }
 
-/* Who I work with */
-.who p { max-width: 24em; }
+/* A wide photograph across the full page before the contact block */
+.band { margin: 0; aspect-ratio: 21 / 9; min-height: 260px; max-height: 78vh; width: 100%; overflow: hidden; background: var(--ink); }
+.band img { width: 100%; height: 100%; object-fit: cover; }
+.band > div { display: flex; align-items: flex-end; height: 100%; padding: var(--space-4); background: var(--surface-raised); }
 
 /* About: a portrait frame and three paragraphs */
 .about-grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 1fr) minmax(0, 7fr); align-items: start; }
@@ -163,14 +175,24 @@ html { overflow-x: clip; }
 .foot-brand img { width: 32px; height: 32px; }
 .foot a { display: inline-flex; align-items: center; min-height: 44px; }
 
+@media (max-width: 1000px) {
+  .hero { grid-template-columns: 1fr; gap: 0; }
+  .hero h1 { font-size: clamp(1.75rem, 5.2vw, 3rem); max-width: 20em; }
+  .hero-photos { margin-left: calc(-1 * var(--pad)); }
+  .strip { height: clamp(300px, 78vw, 620px); }
+  .strip-key { padding-inline: var(--pad); }
+  .shoot-head { grid-template-columns: 1fr; gap: var(--space-4); align-items: start; }
+  .chapter, .chapter--flip { grid-template-columns: 1fr; gap: var(--space-5); }
+  .chapter--flip > .slot { order: 0; }
+  .chapter > .slot { margin-right: var(--line-frame); }
+  .chapter-side { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: end; }
+}
+
 @media (max-width: 820px) {
-  .sf { font-size: 18px; }
+  .sf { font-size: 18px; --cross: 72px; }
   .head-logo img { height: 30px; }
   .head-nav, .head-mail { font-size: 15px; }
   .head-nav { gap: 0 var(--space-4); }
-  .chapter, .chapter--flip { grid-template-columns: 1fr; gap: var(--space-4); }
-  .chapter--flip .slot { order: 0; }
-  .chapter .slot { margin-right: var(--line-frame); }
   .about-grid { grid-template-columns: 1fr; gap: var(--space-5); }
   .about-grid .slot { max-width: 78%; }
   .about-text { grid-column: 1; }
@@ -180,14 +202,12 @@ html { overflow-x: clip; }
   .steps li { grid-template-columns: 56px minmax(0, 1fr); }
 }
 
-/* Phones: the strip stacks into three full-width photos of equal height */
 @media (max-width: 600px) {
   .head { column-gap: var(--space-3); }
   .head-nav { order: 3; flex-basis: 100%; margin-left: 0; }
-  .sf { --cross: 0px; }
-  .strip { grid-template-columns: 1fr; margin-inline: calc(-1 * var(--pad)); }
-  .strip::before { content: none; }
-  .strip .slot { aspect-ratio: 3 / 2; }
+  .chapter-side { grid-template-columns: 1fr; }
+  .slot--side { display: none; }
+  .band { aspect-ratio: 4 / 3; }
 }
 
 @media (prefers-reduced-motion: reduce) {

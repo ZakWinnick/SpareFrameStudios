@@ -20,9 +20,9 @@
 <body class="sf">
 <a class="skip" href="#main">Skip to content</a>
 
-<!-- Photo slots. Each empty slot is a <figure class="slot" data-slot="subject" aria-hidden="true"> holding a <div> with a label.
-     To fill one: replace the whole <div>...</div> with <img src="assets/photos/..." alt="what the photo shows">, and remove aria-hidden.
-     Add loading="lazy" to every photo below the top of the page. -->
+<!-- PLACEHOLDER PHOTOS. Every photo on this page is a stand-in from Unsplash, not Zak's work.
+     Each <figure> names its source in data-placeholder and the intended subject in data-slot.
+     To replace one: save Zak's photo over the file in assets/photos/ (same name, same shape), update the alt text, and delete data-placeholder. -->
 
 <div class="ground" data-theme="dark">
   <header class="wrap head">
@@ -35,61 +35,76 @@
   </header>
 
   <section class="wrap hero" id="top" aria-labelledby="hero-title">
-    <p class="sf-label">Photography by Zak Winnick</p>
-    <h1 class="sf-display" id="hero-title">Hotels, vehicles and the outdoors, photographed on location.</h1>
-    <div class="hero-text">
-      <p>I’m Zak Winnick. I photograph independent hotels, restaurants and tasting rooms, cars and EVs out on real roads, and people outside doing what they came for. I come to you.</p>
+    <div class="hero-copy">
+      <p class="sf-label">Photography by Zak Winnick</p>
+      <h1 class="sf-display" id="hero-title">If you run a place people visit, make something people drive, or sell a reason to go outside, <em>I’d like to hear what you’re working on.</em></h1>
       <a class="btn" href="https://studio.spareframe.net/">Send a photography inquiry</a>
     </div>
-    <!-- Hero strip: three photos edge to edge, one per area. 4:5 on wide screens, 3:2 stacked on phones. -->
-    <div class="strip">
-      <figure class="slot" data-slot="Hospitality: a room as a guest first sees it, in morning light" aria-hidden="true"><div><span>Placeholder: Zak’s photo. Hospitality: a room as a guest first sees it, in morning light</span></div></figure>
-      <figure class="slot" data-slot="Vehicles: a vehicle on a real road at first light" aria-hidden="true"><div><span>Placeholder: Zak’s photo. Vehicles: a vehicle on a real road at first light</span></div></figure>
-      <figure class="slot" data-slot="Outdoor: people setting up camp or on a trail" aria-hidden="true"><div><span>Placeholder: Zak’s photo. Outdoor: people setting up camp or on a trail</span></div></figure>
+    <div class="hero-photos">
+      <div class="strip">
+        <figure class="slot" data-slot="Hospitality: a room as a guest first sees it, in morning light" data-placeholder="Unsplash: ubeyonroad"><img src="assets/photos/hero-hospitality.jpg" alt="A sunlit orange armchair beside a hotel room window" width="1000" height="1500" fetchpriority="high" decoding="async"></figure>
+        <figure class="slot" data-slot="Vehicles: a vehicle on a real road at first light" data-placeholder="Unsplash: Wes Hicks"><img src="assets/photos/hero-vehicles.jpg" alt="An electric truck on a gravel road through autumn trees" width="1000" height="1500" fetchpriority="high" decoding="async"></figure>
+        <figure class="slot" data-slot="Outdoor: people setting up camp or on a trail" data-placeholder="Unsplash: Jan Valečka"><img src="assets/photos/hero-outdoor.jpg" alt="A hiker in an orange jacket seen from inside a tent, facing a mountain range" width="1000" height="1500" fetchpriority="high" decoding="async"></figure>
+      </div>
+      <ol class="strip-key sf-small">
+        <li><a href="#hospitality"><span aria-hidden="true">01</span> Hospitality</a></li>
+        <li><a href="#vehicles"><span aria-hidden="true">02</span> Vehicles</a></li>
+        <li><a href="#outdoor"><span aria-hidden="true">03</span> Outdoor</a></li>
+      </ol>
     </div>
   </section>
 </div>
 
 <main id="main">
-  <section class="wrap sec after-hero" aria-labelledby="shoot-title">
-    <h2 class="sf-label" id="shoot-title">What I shoot</h2>
+  <section class="wrap sec shoot" aria-labelledby="shoot-title">
+    <p class="sf-label">What I shoot</p>
+    <div class="shoot-head">
+      <h2 class="sf-quote" id="shoot-title">Hotels, vehicles and the outdoors, photographed on location.</h2>
+      <p class="shoot-intro">I’m Zak Winnick. I photograph independent hotels, restaurants and tasting rooms, cars and EVs out on real roads, and people outside doing what they came for. I come to you.</p>
+    </div>
     <ol class="chapters">
-      <li class="chapter">
-        <div class="chapter-text">
-          <span class="chapter-num" aria-hidden="true">01</span>
-          <h3 class="sf-lead-2">Hospitality and places.</h3>
-          <p>Hotels, inns, restaurants, tasting rooms and the properties people book.</p>
-          <p>The room as a guest first sees it, the front desk, the plate, the morning light, photographed for your site, your listings and your next season.</p>
+      <li class="chapter" id="hospitality">
+        <figure class="slot" data-slot="Hospitality: a plate or glass on the bar" data-placeholder="Unsplash: Daniel"><img src="assets/photos/hospitality-1.jpg" alt="Three cocktails on a wooden bar under warm light" width="1600" height="1067" loading="lazy" decoding="async"></figure>
+        <div class="chapter-side">
+          <div class="chapter-text">
+            <span class="chapter-num" aria-hidden="true">01</span>
+            <h3 class="sf-lead-2">Hospitality and places.</h3>
+            <p>Hotels, inns, restaurants, tasting rooms and the properties people book.</p>
+            <p>The room as a guest first sees it, the front desk, the plate, the morning light, photographed for your site, your listings and your next season.</p>
+          </div>
+          <figure class="slot slot--side" data-slot="Hospitality: the room, a detail" data-placeholder="Unsplash: Sophie Lee-Tin-Yien"><img src="assets/photos/hospitality-2.jpg" alt="A hotel bed with a warm strip of light along the wall" width="900" height="600" loading="lazy" decoding="async"></figure>
         </div>
-        <figure class="slot" data-slot="Hospitality: the exterior at blue hour, or a plate or glass on the bar" aria-hidden="true"><div><span>Placeholder: Zak’s photo. Hospitality: the exterior at blue hour, or a plate or glass on the bar</span></div></figure>
       </li>
-      <li class="chapter chapter--flip">
-        <div class="chapter-text">
-          <span class="chapter-num" aria-hidden="true">02</span>
-          <h3 class="sf-lead-2">Vehicles and EVs.</h3>
-          <p>Cars, trucks and EVs out where they get used: on real roads, at the charger, loaded up at the trailhead.</p>
-          <p>The hero shot, the details and the product installed and working.</p>
+      <li class="chapter chapter--flip" id="vehicles">
+        <figure class="slot" data-slot="Vehicles: a truck out where it gets used" data-placeholder="Unsplash: Leo_Visions"><img src="assets/photos/vehicles-1.jpg" alt="A green electric truck kicking up dust on a desert track" width="1600" height="1067" loading="lazy" decoding="async"></figure>
+        <div class="chapter-side">
+          <div class="chapter-text">
+            <span class="chapter-num" aria-hidden="true">02</span>
+            <h3 class="sf-lead-2">Vehicles and EVs.</h3>
+            <p>Cars, trucks and EVs out where they get used: on real roads, at the charger, loaded up at the trailhead.</p>
+            <p>The hero shot, the details and the product installed and working.</p>
+          </div>
+          <figure class="slot slot--side" data-slot="Vehicles: a detail" data-placeholder="Unsplash: Clayton Cardinalli"><img src="assets/photos/vehicles-2.jpg" alt="The tailgate and light bar of a blue electric truck" width="900" height="600" loading="lazy" decoding="async"></figure>
         </div>
-        <figure class="slot" data-slot="Vehicles: a truck at a trailhead or charger, or a detail in low raking light" aria-hidden="true"><div><span>Placeholder: Zak’s photo. Vehicles: a truck at a trailhead or charger, or a detail in low raking light</span></div></figure>
       </li>
-      <li class="chapter">
-        <div class="chapter-text">
-          <span class="chapter-num" aria-hidden="true">03</span>
-          <h3 class="sf-lead-2">Outdoor and adventure.</h3>
-          <p>People outside using the gear, guiding the trip or running the event.</p>
-          <p>Real light, real weather and the moment that makes it worth going.</p>
+      <li class="chapter" id="outdoor">
+        <figure class="slot" data-slot="Outdoor: people setting up camp" data-placeholder="Unsplash: Alex Moliski"><img src="assets/photos/outdoor-1.jpg" alt="A camper beside a tent at sunrise, with a mountain peak catching the first light" width="1600" height="1067" loading="lazy" decoding="async"></figure>
+        <div class="chapter-side">
+          <div class="chapter-text">
+            <span class="chapter-num" aria-hidden="true">03</span>
+            <h3 class="sf-lead-2">Outdoor and adventure.</h3>
+            <p>People outside using the gear, guiding the trip or running the event.</p>
+            <p>Real light, real weather and the moment that makes it worth going.</p>
+          </div>
+          <figure class="slot slot--side" data-slot="Outdoor: camp, or the view at the top" data-placeholder="Unsplash: Jack White"><img src="assets/photos/outdoor-2.jpg" alt="A tent pitched in a mountain valley at sunset" width="900" height="600" loading="lazy" decoding="async"></figure>
         </div>
-        <figure class="slot" data-slot="Outdoor: gear in use, or the view at the top" aria-hidden="true"><div><span>Placeholder: Zak’s photo. Outdoor: gear in use, or the view at the top</span></div></figure>
       </li>
     </ol>
     <p class="films">When a moment needs to move, I shoot short films too.</p>
   </section>
-
-  <section class="wrap sec who" aria-labelledby="who-title">
-    <h2 class="sf-label" id="who-title">Who I work with</h2>
-    <p class="sf-quote">If you run a place people visit, make something people drive, or sell a reason to go outside, I’d like to hear what you’re working on.</p>
-  </section>
 </main>
+
+<figure class="band" data-slot="A wide shot from the road" data-placeholder="Unsplash: Valentin Karisch"><img src="assets/photos/band.jpg" alt="A vehicle trailing dust across open desert at sunset" width="2200" height="940" loading="lazy" decoding="async"></figure>
 
 <div class="ground contact-ground" data-theme="dark">
   <section class="wrap contact" aria-labelledby="contact-title">

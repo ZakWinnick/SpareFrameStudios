@@ -20,9 +20,7 @@
 <body class="sf">
 <a class="skip" href="#main">Skip to content</a>
 
-<!-- Photo slots. Each empty slot is a <figure class="slot" data-slot="subject" aria-hidden="true"> holding a <div> with a label.
-     To fill one: replace the whole <div>...</div> with <img src="assets/photos/..." alt="what the photo shows">, and remove aria-hidden.
-     Add loading="lazy" to every photo below the top of the page. -->
+<!-- PLACEHOLDER PHOTO: the About image is a stand-in from Unsplash. Replace assets/photos/about.jpg with a portrait of Zak, update the alt text and delete data-placeholder. -->
 
 <div class="ground" data-theme="dark">
   <header class="wrap head">
@@ -43,7 +41,7 @@
   <section class="wrap sec" aria-labelledby="about-title">
     <h2 class="sf-label" id="about-title">About</h2>
     <div class="about-grid">
-      <figure class="slot slot--portrait" data-slot="About: a portrait of Zak on location" aria-hidden="true"><div><span>Placeholder: Zak’s photo. About: a portrait of Zak on location</span></div></figure>
+      <figure class="slot slot--portrait" data-slot="About: a portrait of Zak on location" data-placeholder="Unsplash: Lisha Riabinina"><img src="assets/photos/about.jpg" alt="Vineyard rows running toward hills in Napa Valley" width="1000" height="1250" loading="lazy" decoding="async"></figure>
       <div class="about-text">
         <p>I’m based in Napa County and I travel for shoots.</p>
         <p>I worked guest relations and the front desk at hotels in Las Vegas and Nashville, so I know what a guest notices when they walk in. I also spend a lot of my time around EVs: I work on road-trip charging through Rangeway, and I’m active in the Rivian community through the Bay Area Rivian Club.</p>
