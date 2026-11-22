@@ -99,7 +99,6 @@ html { overflow-x: clip; }
 /* Hero: the invitation on the left, one band of three tall photographs on the right, crossing from the ink onto the cream */
 .hero { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 88px); align-items: end; padding-top: clamp(24px, 3vw, 48px); }
 .hero-copy { padding-bottom: clamp(40px, 5vw, 80px); }
-.hero .sf-label { color: var(--accent); margin-bottom: var(--space-4); }
 .hero h1 { font-size: clamp(1.75rem, 3.15vw, 3rem); line-height: 1.12; font-weight: 500; letter-spacing: -0.025em; text-wrap: pretty; }
 .hero h1 em { font-style: normal; color: var(--accent); }
 .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 56px; margin-top: var(--space-5); padding: 0 var(--space-4); background: var(--text); color: var(--surface); font-size: 17px; font-weight: 600; text-decoration: none; transition: background-color .2s ease; }
@@ -136,7 +135,6 @@ html { overflow-x: clip; }
 .chapter p { margin-top: var(--space-3); font-size: 18px; }
 .chapter p + p { color: var(--text-muted); }
 .slot--side::before { content: none; }
-.films { margin-top: clamp(64px, 8vw, 128px); padding-top: var(--space-4); border-top: var(--line-hair) solid var(--rule); font-size: 18px; color: var(--text-muted); }
 
 /* A wide photograph across the full page before the contact block */
 .band { margin: 0; aspect-ratio: 21 / 9; min-height: 260px; max-height: 78vh; width: 100%; overflow: hidden; background: var(--ink); }
