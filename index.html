@@ -1,78 +1,107 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f7f1e8">
-  <meta name="description" content="Spare Frame Studios is the photography practice of Zak Winnick. On-location photography for automotive, outdoor, travel, and hospitality projects.">
-  <meta property="og:title" content="Spare Frame Studios | Photography by Zak Winnick">
-  <meta property="og:description" content="On-location photography for automotive, outdoor, travel, and hospitality projects.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://spareframe.net/">
-  <link rel="canonical" href="https://spareframe.net/">
-  <title>Spare Frame Studios | Photography by Zak Winnick</title>
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <link rel="stylesheet" href="photography.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#191817">
+<title>Spare Frame Studios | Photography by Zak Winnick</title>
+<meta name="description" content="Zak Winnick photographs hotels, restaurants, vehicles and the outdoors on location. Based in Napa County.">
+<meta property="og:title" content="Spare Frame Studios | Photography by Zak Winnick">
+<meta property="og:description" content="Zak Winnick photographs hotels, restaurants, vehicles and the outdoors on location. Based in Napa County.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://spareframe.net/">
+<link rel="canonical" href="https://spareframe.net/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="assets/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="photography.css">
 </head>
-<body>
-  <a class="skip" href="#main">Skip to content</a>
-  <header class="shell masthead">
-    <a class="brand" href="./" aria-label="Spare Frame Studios home">
-      <img src="assets/logo-primary.svg" alt="" width="665" height="130">
-    </a>
-    <nav aria-label="Main navigation">
-      <a href="#projects">What I shoot</a>
-      <a href="#contact">Contact<span aria-hidden="true"> ↗</span></a>
+<body class="sf">
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- Photo slots. Each empty slot is a <figure class="slot" data-slot="subject" aria-hidden="true"> holding a <div> with a label.
+     To fill one: replace the whole <div>...</div> with <img src="assets/photos/..." alt="what the photo shows">, and remove aria-hidden.
+     Add loading="lazy" to every photo below the top of the page. -->
+
+<div class="ground" data-theme="dark">
+  <header class="wrap head">
+    <a class="head-logo" href="#top" aria-label="Spare Frame Studios home"><img src="assets/logo-reverse.svg" alt="" width="194" height="38"></a>
+    <nav class="head-nav" aria-label="Main">
+      <a href="about.html">About</a>
+      <a href="working-together.html">Working together</a>
     </nav>
+    <a class="head-mail" href="mailto:hello@spareframe.net">hello@spareframe.net</a>
   </header>
 
-  <main id="main" class="shell">
-    <section class="intro" aria-labelledby="headline">
-      <div class="intro-copy">
-        <p class="label byline">Photography by Zak Winnick</p>
-        <h1 id="headline">On the road.<br>Out in the open.</h1>
-        <p class="intro-summary">On-location photography for automotive and outdoor brands, travel destinations, and independent hotels and restaurants.</p>
-        <a class="project-link" href="https://studio.spareframe.net/">Tell me about your shoot <span aria-hidden="true">↗</span></a>
-      </div>
-      <div class="brand-plate" aria-hidden="true">
-        <img src="assets/mark-reverse.svg" alt="" width="160" height="160">
-      </div>
-    </section>
+  <section class="wrap hero" id="top" aria-labelledby="hero-title">
+    <p class="sf-label">Photography by Zak Winnick</p>
+    <h1 class="sf-display" id="hero-title">Hotels, vehicles and the outdoors, photographed on location.</h1>
+    <div class="hero-text">
+      <p>I’m Zak Winnick. I photograph independent hotels, restaurants and tasting rooms, cars and EVs out on real roads, and people outside doing what they came for. I come to you.</p>
+      <a class="btn" href="https://studio.spareframe.net/">Send a photography inquiry</a>
+    </div>
+    <!-- Hero strip: three photos edge to edge, one per area. 4:5 on wide screens, 3:2 stacked on phones. -->
+    <div class="strip">
+      <figure class="slot" data-slot="Hospitality: a room as a guest first sees it, in morning light" aria-hidden="true"><div><span>Placeholder: Zak’s photo. Hospitality: a room as a guest first sees it, in morning light</span></div></figure>
+      <figure class="slot" data-slot="Vehicles: a vehicle on a real road at first light" aria-hidden="true"><div><span>Placeholder: Zak’s photo. Vehicles: a vehicle on a real road at first light</span></div></figure>
+      <figure class="slot" data-slot="Outdoor: people setting up camp or on a trail" aria-hidden="true"><div><span>Placeholder: Zak’s photo. Outdoor: people setting up camp or on a trail</span></div></figure>
+    </div>
+  </section>
+</div>
 
-    <section class="projects" id="projects" aria-labelledby="projects-title">
-      <h2 id="projects-title">What I shoot</h2>
-      <dl class="project-list">
-        <div>
-          <dt>Automotive</dt>
-          <dd>Vehicles in the places people actually take them, with the road, the surroundings, and the details that tell you what it’s like to be there.</dd>
+<main id="main">
+  <section class="wrap sec after-hero" aria-labelledby="shoot-title">
+    <h2 class="sf-label" id="shoot-title">What I shoot</h2>
+    <ol class="chapters">
+      <li class="chapter">
+        <div class="chapter-text">
+          <span class="chapter-num" aria-hidden="true">01</span>
+          <h3 class="sf-lead-2">Hospitality and places.</h3>
+          <p>Hotels, inns, restaurants, tasting rooms and the properties people book.</p>
+          <p>The room as a guest first sees it, the front desk, the plate, the morning light, photographed for your site, your listings and your next season.</p>
         </div>
-        <div>
-          <dt>Outdoor &amp; travel</dt>
-          <dd>People out doing what they love, gear in use, and the places worth making a trip for.</dd>
+        <figure class="slot" data-slot="Hospitality: the exterior at blue hour, or a plate or glass on the bar" aria-hidden="true"><div><span>Placeholder: Zak’s photo. Hospitality: the exterior at blue hour, or a plate or glass on the bar</span></div></figure>
+      </li>
+      <li class="chapter chapter--flip">
+        <div class="chapter-text">
+          <span class="chapter-num" aria-hidden="true">02</span>
+          <h3 class="sf-lead-2">Vehicles and EVs.</h3>
+          <p>Cars, trucks and EVs out where they get used: on real roads, at the charger, loaded up at the trailhead.</p>
+          <p>The hero shot, the details and the product installed and working.</p>
         </div>
-        <div>
-          <dt>Hospitality</dt>
-          <dd>Independent hotels, restaurants, and roadside stops. The space, the people behind it, and what a visit feels like.</dd>
+        <figure class="slot" data-slot="Vehicles: a truck at a trailhead or charger, or a detail in low raking light" aria-hidden="true"><div><span>Placeholder: Zak’s photo. Vehicles: a truck at a trailhead or charger, or a detail in low raking light</span></div></figure>
+      </li>
+      <li class="chapter">
+        <div class="chapter-text">
+          <span class="chapter-num" aria-hidden="true">03</span>
+          <h3 class="sf-lead-2">Outdoor and adventure.</h3>
+          <p>People outside using the gear, guiding the trip or running the event.</p>
+          <p>Real light, real weather and the moment that makes it worth going.</p>
         </div>
-      </dl>
-    </section>
+        <figure class="slot" data-slot="Outdoor: gear in use, or the view at the top" aria-hidden="true"><div><span>Placeholder: Zak’s photo. Outdoor: gear in use, or the view at the top</span></div></figure>
+      </li>
+    </ol>
+    <p class="films">When a moment needs to move, I shoot short films too.</p>
+  </section>
 
-    <section class="contact" id="contact" aria-labelledby="contact-title">
-      <div>
-        <p class="label">Work with me</p>
-        <h2 id="contact-title">Have a shoot in mind?</h2>
-      </div>
-      <div class="contact-details">
-        <p>I’m Zak, the photographer behind Spare Frame Studios. Tell me what you want to show, where it’s happening, and when you need the images. We can also talk about a short film if the project calls for one.</p>
-        <a href="https://studio.spareframe.net/">Send a photography inquiry <span aria-hidden="true">↗</span></a>
-      </div>
-    </section>
-  </main>
+  <section class="wrap sec who" aria-labelledby="who-title">
+    <h2 class="sf-label" id="who-title">Who I work with</h2>
+    <p class="sf-quote">If you run a place people visit, make something people drive, or sell a reason to go outside, I’d like to hear what you’re working on.</p>
+  </section>
+</main>
 
-  <footer class="shell footer">
-    <span>© 2026 Spare Frame Studios</span>
-    <a href="#main">Back to top ↑</a>
+<div class="ground contact-ground" data-theme="dark">
+  <section class="wrap contact" aria-labelledby="contact-title">
+    <h2 class="sf-step" id="contact-title">Tell me what you’d like to shoot, where, and roughly when.</h2>
+    <a class="sf-email" href="mailto:hello@spareframe.net?subject=Photography%20inquiry">hello@spareframe.net</a>
+    <p class="near">Based in Napa County. Happy to travel.</p>
+    <a class="btn" href="https://studio.spareframe.net/">Send a photography inquiry</a>
+  </section>
+  <footer class="wrap foot sf-small">
+    <div class="foot-brand"><img src="assets/mark-reverse.svg" alt="" width="32" height="32"><span>© 2026 Spare Frame Studios</span></div>
+    <a href="mailto:hello@spareframe.net">hello@spareframe.net</a>
   </footer>
+</div>
 </body>
 </html>
