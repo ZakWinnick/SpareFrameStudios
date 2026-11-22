@@ -125,6 +125,10 @@ html { overflow-x: clip; }
 .chapter { display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: clamp(32px, 4vw, 64px); align-items: stretch; scroll-margin-top: var(--space-5); }
 .chapter--flip { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); }
 .chapter--flip > .slot { order: 2; }
+/* The large photo is at least 3:2 and grows to the height of the text column beside it, cropping instead of pushing into the gap */
+.chapter > .slot { aspect-ratio: auto; align-self: stretch; width: 100%; min-width: 0; }
+.chapter > .slot::after { content: ""; display: block; padding-top: 66.667%; }
+.chapter > .slot > * { position: absolute; inset: 0; }
 .chapter-side { display: flex; flex-direction: column; justify-content: space-between; gap: var(--space-5); }
 .chapter-num { display: flex; align-items: center; gap: var(--space-3); font-size: 15px; font-weight: 600; color: var(--text-muted); font-variant-numeric: tabular-nums; }
 .chapter-num::after { content: ""; width: 40px; height: var(--line-control); background: var(--accent); }
