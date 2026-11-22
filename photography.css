@@ -66,7 +66,7 @@ html { overflow-x: clip; }
 
 /* Fluid sizes that top out at the token values */
 .sf-display { font-size: clamp(2.5rem, 6.5vw, 5.5rem); text-wrap: balance; }
-.sf-email { font-size: clamp(1.5rem, 7.6vw, 7rem); }
+.sf-email { font-size: clamp(2.5rem, 7.6vw, 7rem); }
 .sf-lead-2 { font-size: clamp(1.75rem, 3.5vw, 3rem); }
 .sf-lead-3 { font-size: clamp(1.3rem, 2vw, 1.75rem); }
 .sf-quote { font-size: clamp(1.6rem, 3.3vw, 2.875rem); text-wrap: pretty; }
@@ -103,6 +103,9 @@ html { overflow-x: clip; }
 .hero h1 em { font-style: normal; color: var(--accent); }
 .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 56px; margin-top: var(--space-5); padding: 0 var(--space-4); background: var(--text); color: var(--surface); font-size: 17px; font-weight: 600; text-decoration: none; transition: background-color .2s ease; }
 .btn:hover { background: var(--accent); color: var(--on-accent); }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-5); margin-top: var(--space-5); }
+.hero-actions .btn { margin-top: 0; }
+.more { display: inline-flex; align-items: center; min-height: 44px; font-size: 17px; font-weight: 600; text-decoration-color: var(--accent); }
 .hero-photos { margin-right: calc(-1 * var(--pad)); margin-bottom: calc(-1 * var(--cross)); }
 .strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); height: clamp(420px, 72vh, 760px); }
 .strip .slot { aspect-ratio: auto; height: 100%; min-height: 0; }
@@ -171,7 +174,8 @@ html { overflow-x: clip; }
 .sf main { padding-bottom: var(--gap); }
 .contact { padding-block: clamp(72px, 10vw, 152px) clamp(56px, 7vw, 104px); }
 .contact .sf-email { display: inline-block; margin-top: var(--space-4); text-decoration-thickness: .055em; text-underline-offset: .13em; }
-.contact .near { margin-top: var(--space-5); color: var(--text-muted); }
+.contact .near { display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--space-3); margin-top: var(--space-5); color: var(--text-muted); }
+.contact .near a { display: inline-flex; align-items: center; min-height: 44px; color: var(--text); font-weight: 600; text-decoration-color: var(--accent); }
 .foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-5); padding-block: var(--space-4) var(--space-5); border-top: var(--line-hair) solid var(--rule); color: var(--text-muted); }
 .foot-brand { display: flex; align-items: center; gap: var(--space-3); }
 .foot-brand img { width: 32px; height: 32px; }
